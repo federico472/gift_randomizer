@@ -11,32 +11,28 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Friends</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Calendar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Holidays</a>
-        </li>
+        <li> <%= link_to "Calendar", calendar_path, class:"nav-link" %></li>
+        <li> <%= link_to "Friends", friends_path, class:"nav-link" %></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Username
+            <%= current_user.email %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li> <%= link_to "Sign Out", destroy_user_session_path, class:"dropdown-item" %></li>
+            <li> <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
             <li> <%= link_to "Edit Profile", edit_user_registration_path, class:"dropdown-item"%></li>
           </ul>
-          
-        </li>
-          <% elsif %>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <li> <%= link_to "Dadan", root_path, class:"navbar-brand" %> </li>
-        <li> <%= link_to "Sign Up", new_user_registration_path, class:"navbar-brand"%> </li>
-          <li> <%= link_to "Log In", new_user_session_path, class:"navbar-brand" %> </li>
-          </nav>
-        </div>
-      </ul>
+      
+          </ul>
     </div>
   </div>
 </nav>
+          <% elsif %>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <li> <%= link_to "Dadan", root_path, class:"navbar-brand" %> </li>
+                <li> <%= link_to "Sign Up", new_user_registration_path, class:"navbar-brand"%> </li>
+                  <li> <%= link_to "Log In", new_user_session_path, class:"navbar-brand" %> </li>
+                  </nav>
+                </div>
+    
 <% end %>
